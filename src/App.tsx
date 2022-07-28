@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 import './App.scss';
+import { CreateQuiz } from './componets/CreateQuiz/CreateQuiz';
 import { Header } from './componets/Header/header';
 import { HomePage } from './componets/HomePage';
 import { Profile } from './componets/Profile/Profile';
@@ -18,6 +19,7 @@ function App() {
               <Route path='/' element = {<HomePage/>}/>
               <Route path='/:id' element = {<StartQuiz/>}/>
               <Route path='/profile' element = {<Profile/>}/>
+              <Route path='/createQuiz' element = {<CreateQuiz/>}/>
           </Routes>
         </div>  
     </BrowserRouter>

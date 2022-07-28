@@ -18,7 +18,6 @@ export interface question{
 export interface IquizStart{
     title:string,
     readonly id:number
-    sumOFquiz:number
     readonly author:string
     complexity:string
     questions:question[]

@@ -11,7 +11,7 @@ export const Profile:React.FC = (props)=>{
     }
     const quizs:IQuizs = [
         {
-            title:"Брачный период у среднеазиатской черепахи",id:0,sumOFquiz:0,complexity:"hard",author:"Rula",
+            title:"Черепахи",id:0,sumOFquiz:4,complexity:"hard",author:"Rula",
         },
         {title:"КАК жать 1000bpm в секунду",time:10,id:1,sumOFquiz:10,complexity:"imposibel",author:"Rula"}
     ]

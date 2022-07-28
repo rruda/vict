@@ -6,11 +6,11 @@ import "./header.scss"
 export const Header:React.FC = (props)=>{
     return (
         <header className="header">
-            <div className="header__logo">
+            <Link to={"/"} className="header__logo">
                 <span>Q</span>uiz
-            </div>
+            </Link>
             <ul className="header__links">
-                <Link to={"/addQuiz" }>создать викторину</Link>
+                <Link to={"/createQuiz" }>создать викторину</Link>
                 <Link to={"/profile" }>профиль</Link>
             </ul>
         </header>

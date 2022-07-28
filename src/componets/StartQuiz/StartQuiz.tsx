@@ -7,11 +7,11 @@ import "./startQuiz.scss"
 
 export const StartQuiz:React.FC = (pops)=>{
     const quiz:IquizsStart = [
-        { title:"Брачный период у среднеазиатской черепахи",id:0,sumOFquiz:0,complexity:"hard",author:"Rula",questions:[
+        { title:"Черепахи",id:0,complexity:"hard",author:"Rula",questions:[
             {text:"Сколько видов черепах насчитывается на нашей планете?",answers:[{value:"230",right:false},{value:"231",right:false},{value:"200",right:false},{value:"130",right:false}]},
-            {text:"Сколько видов черепах насчитывается на нашей планете?",answers:[{value:"230",right:true},{value:"231",right:true},{value:"200",right:false},{value:"130",right:false}]},
+            {text:"Какова максимальная продолжительность жизни черепахи?",answers:[{value:"230",right:true},{value:"231",right:true},{value:"200",right:false},{value:"130",right:false}]},
             {text:"Сколько видов черепах насчитывается на нашей планете?",answers:[{value:"230",right:true},{value:"231",right:false},{value:"200",right:false},{value:"130",right:false}]},
-            {text:"как какать?",answers:[{value:"230",right:true},{value:"231",right:false},{value:"200",right:false},{value:"130",right:false}]},
+            {text:"Черепахи относятся к ...?",answers:[{value:"230",right:true},{value:"231",right:false},{value:"200",right:false},{value:"130",right:false}]},
         ]},    
     ]
     const ref = useParams()
