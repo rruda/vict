@@ -1,0 +1,21 @@
+.searc-and-filter{
+    background-color: rgb(255, 255, 255);
+    padding: 1rem 0 ;
+}
+.searc-and-filter__w{
+    padding: 1rem;
+    width: 100%;
+    input{
+        transition: 0.3s;
+        border: none;
+        color: rgba(248, 255, 106, 0.293);
+        padding: .5rem;
+        background-color: rgb(25, 25, 25);
+        border-radius: 5px;
+    }
+    input:focus{
+
+        background-color: rgb(24, 24, 24);
+        color: rgb(248, 255, 106);
+    }
+}

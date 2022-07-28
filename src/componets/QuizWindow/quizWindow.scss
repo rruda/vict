@@ -1,0 +1,45 @@
+.quiz-wiondow{
+    height: 100%;
+    background-color: rgb(183, 242, 255);
+    padding: 2rem;
+    h2{
+        font-size: 1.25rem;
+    }
+}
+
+.quiz-wiondow__answers{
+    padding: 0;
+    span{
+        color: rgb(0, 0, 0);
+        padding-right: 0.5rem;
+    }
+    li{
+        cursor: pointer;
+        margin-top: .5rem;
+        font-size: 1.25rem;
+        background-color: rgb(255, 255, 255);
+        padding: .5rem;
+        border-radius: 10px;
+        transition: .3s;
+        border: 1px solid black;
+    }
+    li:hover{
+
+        background-color: rgb(209, 255, 248);
+    }
+}
+.quiz-wiondo__buttons{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: .5rem;
+    button{
+        font-size: 1rem;
+        border: none;
+        background-color: rgb(21, 21, 21);
+        color: aliceblue;
+        padding: .5rem 1rem;
+        border-radius: 10px;
+
+    }
+}
