@@ -1,6 +1,21 @@
 .create-quiz{
-    padding: 1rem;
+    flex: 1 1 1px;
+    position: relative;
+    h1{
+        padding: 1rem;
+        border-bottom: 1px solid black;
+    }
 }
 .create-quiz__options{
+    height: 100%;
+    background-color: rgb(183, 242, 255);
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    >div{
+        flex: 50%;
+    }
+}
+.create-quiz__option{
     margin-top: 1rem;
 }

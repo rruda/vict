@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IQuizs } from "../../types/types";
 import { Quiz } from "../Quiz/Quiz";
 import "./profile.scss"
@@ -9,12 +9,18 @@ export const Profile:React.FC = (props)=>{
     const user = {
         userAvatr:"./avatar.jpg"
     }
-    const quizs:IQuizs = [
-        {
-            title:"Черепахи",id:0,sumOFquiz:4,complexity:"hard",author:"Rula",
-        },
-        {title:"КАК жать 1000bpm в секунду",time:10,id:1,sumOFquiz:10,complexity:"imposibel",author:"Rula"}
-    ]
+    useEffect(()=>{
+        fetch(`http://localhost:5000/api/quizByAuthor?author=${"Rula"}`)
+        .then((response)=>response.json())
+        .then((data)=>{setQuizs(data)})
+    },[])
+    const [quizs,setQuizs] = useState<IQuizs>()
+    // const quizs:IQuizs = [
+    //     {
+    //         title:"Черепахи",id:0,sumOFquiz:4,complexity:"hard",author:"Rula",
+    //     },
+    //     {title:"КАК жать 1000bpm в секунду",time:10,id:1,sumOFquiz:10,complexity:"imposibel",author:"Rula"}
+    // ]
     return (
         <div className="profile">
             <div className="profile__main">
@@ -35,13 +41,13 @@ export const Profile:React.FC = (props)=>{
                 <div className="profile__last-quiz">
                     <h3>Послдение викторины</h3>
                     <div className="profile__quizs">
-                        {quizs.map((item,imdex)=>{return <Quiz key={item.id} {...item} />})}
+                        {quizs&&quizs.map((item,imdex)=>{return <Quiz key={item._id} {...item} />})}
                     </div>
                 </div>
                 <div className="profile__create-quiz">
                     <h3>Созданные виуторины</h3>
                     <div className="profile__quizs">
-                        {quizs.map((item,imdex)=>{return <Quiz key={item.id} {...item} />})}
+                        {quizs&&quizs.map((item,imdex)=>{return <Quiz key={item._id} {...item} />})}
                     </div>
                 </div>
             </div>

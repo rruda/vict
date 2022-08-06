@@ -1,6 +1,6 @@
 export interface Iquiz{
     title:string,
-    readonly id:number
+    readonly _id:number
     sumOFquiz:number
     readonly author:string
     complexity:string
@@ -8,10 +8,11 @@ export interface Iquiz{
 }
 export type IQuizs = Iquiz[]
 
+export type answers = {value:string,right:boolean}[] 
 
 export interface question{
     text: string,
-    answers:{value:string,right:boolean}[]
+    answers:answers
 
 }
 
