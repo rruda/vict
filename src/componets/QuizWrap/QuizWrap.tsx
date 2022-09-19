@@ -1,21 +1,21 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState } from "react";
-import { IQuizs } from "../../types/types";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../hooks/othersHook";import { IState } from "../../store/reduser";
+import { a, Iquiz, IQuizs } from "../../types/types";
 import { Quiz } from "../Quiz/Quiz";
 import "./quiz.scss" 
 
+
 export const QuizWrap:React.FC = ()=>{
-    // const quizs:IQuizs = [
-    //     {
-    //         title:"Черепахи",id:0,sumOFquiz:0,complexity:"hard",author:"Rula",
-    //     },
-    //     {title:"КАК жать 1000bpm в секунду",time:10,id:1,sumOFquiz:10,complexity:"imposibel",author:"Rula"}
-    // ]
-    const [quizs,steQuizs] = useState<IQuizs>()
-    useEffect(()=>{
-        fetch("http://localhost:5000/api/quiz")
-        .then((response)=>response.json())
-        .then((data)=>{steQuizs(data);console.log(data[0]._id)})
-    },[])
+    const dispatch = useAppDispatch()
+    // let [quizs,steQuizs] = useState<IQuizs>()
+    
+    // useEffect(()=>{S
+    //     dispatch(getQuiz())
+    // },[])
+    const quizs:IQuizs = useSelector((state:any)=>state.quiz.quizs)
+    console.log(quizs)
     return(
         <div className="quiz">
             <div className="wrapper">

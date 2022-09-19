@@ -1,3 +1,5 @@
+import { IState } from "../store/reduser"
+
 export interface Iquiz{
     title:string,
     readonly _id:number
@@ -27,3 +29,16 @@ export type IquizsStart = IquizStart[]
 
 
 export type TQuiz = any
+
+export interface a{
+    quiz:IState
+} 
+
+
+
+export interface IUser{
+    lastQuizs:IQuizs,
+    countOfPassQuiz:number,
+    userName:string,
+    password:string,
+} 

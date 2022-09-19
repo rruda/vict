@@ -12,7 +12,6 @@ interface IQuizWindow{
 }
 
 
-
 export const QuizWiondow:React.FC<IQuizWindow> = (props)=>{
     function click(r:boolean){
         setClick(true)

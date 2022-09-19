@@ -1,4 +1,7 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { IUser } from "../../types/types";
 import "./result.scss"
 
 interface IResult{
@@ -8,6 +11,9 @@ interface IResult{
 
 export const Result:React.FC<IResult> = (props)=>{
     const [height,setHeight] = useState(0)
+
+    const userData:IUser = useSelector((state:any)=> state.user.user)
+    const lastQuiz = useSelector((state:any)=> state.quiz.lastQuiz)
     const percent:number = props.rightAnswers/props.questionsLenght * 100
     const animationSyle:{} = {
         position:"absolute",
@@ -17,7 +23,14 @@ export const Result:React.FC<IResult> = (props)=>{
         height:`${percent * height}%`,
 
     }
-    useEffect(()=>{setTimeout(()=>{setHeight(1)},1)},[])
+    useEffect(()=>{
+        setTimeout(()=>{setHeight(1)},1);
+        
+        userData.userName && axios.post(`http://localhost:5000/api/addLastQuiz`,{
+            userName:userData.userName,
+            quiz:lastQuiz,
+        })
+    },[])
     console.log(percent)
     function resultMassage(percent:number){
         if(percent <= 25){

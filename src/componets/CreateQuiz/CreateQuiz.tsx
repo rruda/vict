@@ -15,8 +15,8 @@ export const CreateQuiz:React.FC = (props)=>{
     const [dificult,changeDificult] = useInput()
     const [quizs,changeQuizs] = useInput()
     const [answer,changeAnswer,setAnswer] = useInput()
-    const [right,changeRight] = useInput()
 
+    const [right,setRight] = useState(false)
     const [answers,setAnswers] = useState<answers>([])
     const [question,setQuestion] = useState<question[]>([])
 
@@ -32,7 +32,7 @@ export const CreateQuiz:React.FC = (props)=>{
 
     function addqQuestion(e:any){
         e.preventDefault()
-        if(answers.length >= 2){
+        if(answers.length >= 2 && nameQuestion){
             setQuestion([...question,{text:nameQuestion,answers:answers}])
             setAnswers([])
             setNameQuestion("")
@@ -41,8 +41,13 @@ export const CreateQuiz:React.FC = (props)=>{
     }
     function addAnswer(e:any){
         e.preventDefault()
-        setAnswers([...answers,{value:answer,right:right}])
-        setAnswer("")
+        if(answer){
+            setAnswers([...answers,{value:answer,right:right}])
+            setAnswer("")
+        }
+    }
+    function checkboxChanger(){
+
     }
     console.log(question)
 
@@ -67,25 +72,32 @@ export const CreateQuiz:React.FC = (props)=>{
                     </div>
                 </div>
                 <div className="create-quiz__right">
-                    <div className="create-quiz__option">
-                        <label htmlFor="dificult">
-                            <h2>Вопросы:</h2>
-                        </label>
-                        <input className="input" value={nameQuestion} onChange = {(e)=>{changeNameQuestion(e)}} />
-                        <button onClick={(e)=>{addqQuestion(e)}}>добавить</button>
+                    <div className="create-quiz__QA">
+                        <div className="create-quiz__option">
+                            <label htmlFor="dificult">
+                                <h2>Вопросы:</h2>
+                            </label>
+                            <input className="input" value={nameQuestion} onChange = {(e)=>{changeNameQuestion(e)}} />
+                            <button onClick={(e)=>{addqQuestion(e)}}>добавить</button>
+                        </div>
+                        <div className="create-quiz__answers">
+                                <h2>Ответы:</h2>
+                                <input value={answer} onChange = {changeAnswer} type="text" />
+                                <input type={"checkbox"} checked={right} onClick={()=>{setRight(!right)}} />
+                                <button onClick={(e)=>{addAnswer(e)}}>+</button>
+                                <ul className="create-quiz__answers-list">
+                                    {answers && answers.map((item)=>{
+                                        return <li><span>{item.value}</span><span>{item.right?"+":"x"}</span></li>
+                                    })}
+                                </ul>
+                        </div>
+                        {question&&question.map((item,index)=>{
+                                    return <span>{item.text}</span>
+                                })}
                     </div>
-                    <div className="create-quiz__answers">
-                        <h2>Ответы:</h2>
-                        <input value={answer} onChange = {changeAnswer} type="text" />
-                        <input value={right} onChange={changeRight} type={"checkbox"} />
-                        <button onClick={(e)=>{addAnswer(e)}}>+</button>
-                    </div>
-                    {question&&question.map((item,index)=>{
-                        return <p>{item.text}</p>
-                    })}
                 </div>
-                <button onClick={(e)=>fetc(e)}></button>
             </form>
+            <button className="create-quiz__fetch" onClick={(e)=>fetc(e)}></button>
         </div>
     )
-}
+}  

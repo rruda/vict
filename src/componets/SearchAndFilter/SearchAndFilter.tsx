@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../hooks/othersHook";
+import { getQuiz } from "../../middleware/getQuizByName";
 import "./SearchAndFilter.scss"
 
 export const SearchAndFilter:React.FC = ()=>{
-    const [value,setValue] = useState<string>("Поиск")
+    const [value,setValue] = useState<string>("")
+    const dispatch = useAppDispatch()
     function search(e:React.ChangeEvent<HTMLInputElement>){
         setValue(e.target.value)
     }
@@ -11,6 +15,9 @@ export const SearchAndFilter:React.FC = ()=>{
             console.log("search")
         }
     }
+    useEffect(()=>{
+        dispatch(getQuiz(value))
+    },[value])
     return(
         <div className="searc-and-filter">
             <div className="wrapper">
