@@ -18,7 +18,7 @@ export const Result:React.FC<IResult> = (props)=>{
     const animationSyle:{} = {
         position:"absolute",
         bottom:0,
-        backgroundColor:"rgb(189, 242, 255)",
+        backgroundColor:"rgb(255, 183, 242)",
         width:"150%",
         height:`${percent * height}%`,
 

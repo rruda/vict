@@ -22,6 +22,8 @@ export const SearchAndFilter:React.FC = ()=>{
         <div className="searc-and-filter">
             <div className="wrapper">
                 <div className="searc-and-filter__w">
+                    
+                    <h1>Q<span>uiz</span> - сайт с викторинами</h1>
                     <input 
                         type="text" 
                         value={value} 

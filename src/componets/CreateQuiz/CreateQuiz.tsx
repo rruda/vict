@@ -97,7 +97,7 @@ export const CreateQuiz:React.FC = (props)=>{
                     </div>
                 </div>
             </form>
-            <button className="create-quiz__fetch" onClick={(e)=>fetc(e)}></button>
+            <button className="create-quiz__fetch" onClick={(e)=>fetc(e)}>создать</button>
         </div>
     )
 }  

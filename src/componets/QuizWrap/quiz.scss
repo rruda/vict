@@ -1,11 +1,13 @@
 .quiz{
-    background-color: rgb(230, 230, 230);
-    
-    flex: 1 1 ;
-    height: 100%;
+    background-color: rgb(255, 255, 255);
+    flex: 1 1 70%;
+    padding: .5rem;
 
     
 }
 .quiz__items{
-    padding: 1rem;
+    display: grid;
+    grid-template-columns:repeat(auto-fit, 350px);
+    justify-content: center;
+    column-gap:  .5rem;
 }
